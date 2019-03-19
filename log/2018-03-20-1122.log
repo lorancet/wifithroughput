@@ -1,0 +1,19 @@
+PogoUpgrade: 2018/3/7 v5.1.2
+PogoPeplink: 2018/3/7 v1.4.6
+PogoUI: 2018/2/27 v3.2.0
+
+
+10.88.80.2
+Devcie upgrade firmware from: 7.1.1.201803170019-r19936 build
+Devcie upgrade firmware to: Z:\autofirmware\fw-fusionhub-7.1.1.201803200019-r19955.bin
+
+10.88.80.3
+Devcie upgrade firmware from: 7.1.1.201803170019-r19936 build
+Devcie upgrade firmware to: Z:\autofirmware\fw-fusionhub-7.1.1.201803200019-r19955.bin
+
+192.168.1.1
+Devcie upgrade firmware from: 7.1.1.201803150019-r19922 build
+Devcie upgrade firmware to: Z:\autofirmware\fw-b305hw2_380hw6_580hw2_710hw3_1350hw2_2500-7.1.1.201803200019-r19955.bin
+
+192.168.50.1
+Not found: 192.168.50.1

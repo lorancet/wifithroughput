@@ -1,0 +1,94 @@
+#-*- coding: utf-8 -*-
+#TestGroup0010
+
+IpAdd = '192.168.1.1' #設備IP
+pepurl = 'http://'+IpAdd #http:// + 設備IP
+AppWait = 120
+count = 0
+       
+HOST = '10.88.1.101' #WAN Switch IP
+PORT = '31' #WAN Switch Port 
+VID = '131' #WAN Switch vlan ids
+
+LAN_PORT = '10' #LAN Switch Port 
+LAN_VID = '210' #LAN Switch vlan id
+
+
+cmd = ['nslookup -type=any peptest.com.tw 10.88.81.1;nslookup -type=any peptest1.com.tw 10.88.81.1','nslookup -type=a www.peptest.com.tw 10.88.81.1','nslookup -type=a www.tw.peptest.com.tw 10.88.81.1','nslookup -type=a www1.peptest.com.tw 10.88.81.1','nslookup -type=mx mail.peptest.com.tw 10.88.81.1','dig -t soa 10.88.81.1','nslookup -type=any peptest.com.tw 10.88.82.1;nslookup -type=any peptest1.com.tw 10.88.82.1','nslookup -type=a www.peptest.com.tw 10.88.82.1','nslookup -type=a www.tw.peptest.com.tw 10.88.82.1','nslookup -type=a www1.peptest.com.tw 10.88.82.1','nslookup -type=mx mail.peptest.com.tw 10.88.82.1','dig -t soa 10.88.82.1']
+
+PrivateKey = '''
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA1WR7tujvgaRhmjDIlX+jOJAxZbaZToyjBoYCbRNs1gBAp50T
+LDMQX6WTdbFEUWk/v+ZtMcVT2LpWZiLjs2qTj0NU/nkffhZbom0MMaWifCkAhuA/
+8Fpgta/+xwOgNsgp51/Z6LwT79UzpTJCoWnMMWTS07gvq4thbkZhitlDraTataJt
+a0y/mvCaZtO29OfJI1YhE24mXf/ei4Ub9upR69sZ9j9F3+A7Hkp/Ig2ZG7Lni647
+8cyduZUkU6so3VadXLm9hmosvNILmwll9mHat0qWnz058R+WePTjtt1r5aYjtFqG
+a3YIKrJmIgxGqOH45uegmncdyZn0e+apK/1BAwIDAQABAoIBACOk5DFaWV9bWN5L
+lcW7C0WQeF/YD2WagkS9r7wOiZh5dFNLHn+8i9ieLLJ1CMdcgESKteShZG8IORRY
+cZZvj/RXN+RF0SfbjjTkaCwG0cxRgQAGh0eboRnYKwONLH7aEn3OefSxLdda0oSe
+j5istmntwHWTB4ts/bpQ0UxDHFXtrCiYEnNA9bqQdp+7sgKnhpDRU9md0DTFDQqS
+VIAIRyx9kpFkYC/1COpFv36gVuIoYTlXLweLwfM5K/Ms2Y5ykGi7lkCn2qy/kDmJ
+2xzB0Oa5vLBdhCJUgHjvnES8WvV0zc5A4+vpmS+ptOTV+wJIjoeO8aV4sTj1FC4V
+vTAAtTECgYEA/pF7JBgtxZv388i8TPqRu70fKZm9rvZEHIHHOQdIyojCezeiP9Wh
+hn8+ymSrXCT7wS2P5ZGK9HIehrbD3AIIcmv0O/INVVfniLIGwu8ZFy1tb0U4q91I
+ITlJMvLKpGk2nzZkWR7sqBAdWo+A0KHCYs5/+QBxioGigs92EABklAsCgYEA1pe3
+/ofSdb1A+j04voIHcuhDcFsV8JkeDR0wkRogn6qjV0eVPv/DWb0In+UGoCcp8Jx0
+Vxt2LFrS1/mJq91WSSu/5N5IC0W24IUDLs/iyb8S+issCo/E9vsOU0lPDPHz62js
+AA2GMVOxHjinevq3RLYg3L84VCwPjRnQtLluaekCgYEAht9JIKx2w7WIvu5hZV90
+CsV+VyoPJz1uhLP1ey9yz2t5rpKhMbTbqUiNWenQKDen8odTL8vWlQBJUBJQ3qVt
+GEI92ey6R7cVAoVfs7O91VvKGSPRjKzmZEPXlliwKD9eIyhMLjOGKtyu0KYrF148
+gODrSF+FyF46XZfQ81Vh9FUCgYEAkJmBeTkKnx3c6AJS90RlQo+xyccG3K5AqrON
+o2kIrK5uDIUG04HCn/iaFCxer5JUV3cFiiDOG4tD4habJz0pRHr/fngt8bKTTW0z
+vNqGRk3DuuFWdvNz1L1NZN/ULbPoGiwEQvDaCOkNQ4EHkf3ZeqqDMFyF12otPHY1
+xWHiPekCgYBkljMSy/aIQeYTUTUrbuGJvQrG5+HbkY8z2i4Ac7U8N1j5IOKUEYBY
+0UccmdR9ukZzBEPeoQNKloF57jrnppt/7omJIFz6H8NactlSoMu9TfkXPAFifGVk
+wN7w0h1s7mE6nup+e3zLWrWpYtWtJftz/NrT9pNpVDe81KyyUV90RA==
+-----END RSA PRIVATE KEY-----
+'''
+ 
+PublicKey = '''
+-----BEGIN CERTIFICATE-----
+MIIDgjCCAmoCCQCNlQwPI330IDANBgkqhkiG9w0BAQUFADCBgjELMAkGA1UEBhMC
+SEsxGTAXBgNVBAgTEEhvbmcgS29uZyBTLkEuUi4xGTAXBgNVBAcTEEhvbmcgS29u
+ZyBTLkEuUi4xDzANBgNVBAoTBlNpdGUgYTEPMA0GA1UECxMGU2l0ZSBhMRswGQYD
+VQQDExJzaXRlYS5teWRvbWFpbi5jb20wHhcNMTIwODE2MDkyMjAwWhcNMjIwODE0
+MDkyMjAwWjCBgjELMAkGA1UEBhMCSEsxGTAXBgNVBAgTEEhvbmcgS29uZyBTLkEu
+Ui4xGTAXBgNVBAcTEEhvbmcgS29uZyBTLkEuUi4xDzANBgNVBAoTBlNpdGUgYTEP
+MA0GA1UECxMGU2l0ZSBhMRswGQYDVQQDExJzaXRlYS5teWRvbWFpbi5jb20wggEi
+MA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDVZHu26O+BpGGaMMiVf6M4kDFl
+tplOjKMGhgJtE2zWAECnnRMsMxBfpZN1sURRaT+/5m0xxVPYulZmIuOzapOPQ1T+
+eR9+FluibQwxpaJ8KQCG4D/wWmC1r/7HA6A2yCnnX9novBPv1TOlMkKhacwxZNLT
+uC+ri2FuRmGK2UOtpNq1om1rTL+a8Jpm07b058kjViETbiZd/96LhRv26lHr2xn2
+P0Xf4DseSn8iDZkbsueLrjvxzJ25lSRTqyjdVp1cub2Gaiy80gubCWX2Ydq3Spaf
+PTnxH5Z49OO23WvlpiO0WoZrdggqsmYiDEao4fjm56Cadx3JmfR75qkr/UEDAgMB
+AAEwDQYJKoZIhvcNAQEFBQADggEBAAYy/IroYWKtZsoyPit1OyzqBuf10VZRZIud
+X3xsFPCZFUmfPDsSjWA9LnzAn8O7rrDJVe28BsqWrQF9zWeyraSqa/GH5xb5jFo9
+7lNld62/zieCx/fJvAFVowS58D6RclLe61I+FhlEoEzL5Ty6W52p5nM2Tf2oke2W
+NvHMNrtc0RyiOnickIFdqQOWwRdXMxqZdyUFtIUtGbBx9O1Acdsi/yQjXm9GX3bu
+RS9FRAbyMreRddmPV/YoaQcJNdyKVh3cTU9I6uXM7Fpr8oN0sKANlVnvqJre+wmW
+z4XcKrwrCDrCZz6dFcXCGk4APnYrbRaqw2ZUPQ1ZjbKF0S6K4+o=
+-----END CERTIFICATE-----
+'''
+
+X509_Certificate = '''
+-----BEGIN CERTIFICATE-----
+MIIDPDCCAiQCCQCsWo4ef83foTANBgkqhkiG9w0BAQUFADBgMQswCQYDVQQGEwJG
+UjESMBAGA1UECBMJRnJhbmNlIEZSMRIwEAYDVQQHEwlGcmFuY2UgRlIxEjAQBgNV
+BAoTCUZyYW5jZSBGUjEVMBMGA1UEAxMMZnIubXlra2suY29tMB4XDTEyMDgxNjA5
+MjMwOVoXDTIyMDgxNDA5MjMwOVowYDELMAkGA1UEBhMCRlIxEjAQBgNVBAgTCUZy
+YW5jZSBGUjESMBAGA1UEBxMJRnJhbmNlIEZSMRIwEAYDVQQKEwlGcmFuY2UgRlIx
+FTATBgNVBAMTDGZyLm15a2trLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBAOqiuMSS7Jod/eosml0zIbD1GKhF4bGYBWQjfoPhvJ71ORd1HcGym44v
+CAB6OA7LcNyKusxsLhMjIb72vPQ+MLWzpEbAH9shTgNpMUvSlSIEkc16XvB3y4Nt
+yDz8H7uTXELfnmzi2XpwJ+1U9jbTLv2z0BmTPmlMxR13R8eBswDffrQDIC8eQd0d
+mea5Hd5fqZjpewJSL7Ddqo8N4zNkHlTnICKVfjumDW9r6L0EOLu9poZhCMRUSBnN
+5RZfBjp+rsTy8g6HzhtL0oVLCbH+MzxBN+bFmny+SGYk0b9+pUVrm9uqonlmwPjT
+HLu/tDQuGueo+Ep2CsHO4WwQkRIsABMCAwEAATANBgkqhkiG9w0BAQUFAAOCAQEA
+6gnjmc2CrkMRWzx0R4t9KhbEhWWYELwGRL1SCxTLtMN9PkYDEhuuX/VQZE24nwTc
+XqyftrU3jtH629v9UolKjG0VqBDA0SrLEk6tclOTql2JlDpL3OneyPZ16zlwmy4l
++nPWabw3Ty5br2awr9/CK0faO2OrtRwUliv19Y0gtubHiVfACkmPpSpFdXuHqnl0
+is2yahM6aU4uPPPfQcL1x2QAbbxywOZG3DYlmWLEmzvnNNpd7w9/bvecx99F3ZSz
+5ebI2NHxJqmjTb6C4M0qy3OVIdraV/VwKVcvaAEUh7B316u5HBGK8H9bMdfU2aVw
+UscBmiydL35DxxXZHx/BKw==
+-----END CERTIFICATE-----
+'''
