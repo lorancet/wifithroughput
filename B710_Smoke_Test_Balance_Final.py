@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 # 20190214001  新增自動上傳Report
-
+# added to github test
 import os,time
 
 os.system('nmcli device disconnect ens19') 
