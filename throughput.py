@@ -5,5 +5,9 @@
 
 
 if __name__ == "__main__":
-    print('Hi LoLo')
-    test = 1
+
+    width = ['2420','2420/40','2440','520','540','580']
+
+
+    for i in width:
+        print i
