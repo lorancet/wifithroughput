@@ -2,7 +2,7 @@
 #需安裝 python3 & iperf3 
 from Smoke_Module import * 
 
-IpAdd = '192.168.1.1' #設備IP
+IpAdd = '10.92.112.47' #設備IP #2938-619E-C1C0
 pepurl = 'http://'+IpAdd #http:// + 設備IP
 AppWait = 120 #小型設備要加 dealy 建議 120 sec, RC18 後自動修改
 
