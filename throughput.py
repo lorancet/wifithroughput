@@ -1,7 +1,8 @@
 # coding=UTF-8
+#需安裝 python3 & iperf3 
 
-
-
+server = '10.88.80.120'
+client = '192.168.50.10'
 
 
 if __name__ == "__main__":
