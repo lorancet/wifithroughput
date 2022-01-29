@@ -10,4 +10,4 @@ if __name__ == "__main__":
 
 
     for i in width:
-        print i
+        print(i)
