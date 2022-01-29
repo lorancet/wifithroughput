@@ -23,7 +23,8 @@ if __name__ == "__main__":
     width = ['24w20','24w2040','24w40','5w20','5w40','5w80']
 
     for i in width:
-        Config_File_Upload2('Config/'+ i +'.txt')
+        #Config_File_Upload2('Config/'+ i +'.txt')
+        print('Config/'+ i +'.txt')
         Bsleep(120)
         #print('download' + str(i))
         #print('upload' + str(i))
